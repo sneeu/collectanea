@@ -9,11 +9,15 @@ $(function () {
 			$(this).next('.payload').fadeIn();
 		});
 		self.hover(function () {
-			self.find('.trigger').fadeIn();
-			self.find('p').fadeIn();
+			if (self.parent('.spotlight').length > 0) {
+				self.find('.trigger').fadeIn();
+				self.find('p').fadeIn();
+			}
 		}, function () {
 			self.find('.trigger').fadeOut();
 			self.find('p').fadeOut();
 		});
+		self.find('.trigger').hide();
+		self.find('p').hide();
 	});
 });
