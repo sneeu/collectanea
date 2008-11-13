@@ -13,23 +13,76 @@
 			font: 100% Helvetica;
 			overflow: hidden;
 		}
+		li {
+			list-style: none;
+		}
+
+		.product_images {
+			height: 500px;
+			overflow: hidden;
+			position: relative;
+			width: 500px;
+		}
+		.frame {
+			left: 0;
+			position: absolute;
+			top: 0;
+		}
+
+		.trigger {
+			line-height: 0;
+			margin: 1px;
+			position: absolute;
+			top: 0;
+			width: 75px;
+			z-index: 10;
+		}
+		.second .trigger {
+			left: 80px;
+		}
+		.third .trigger {
+			left: 160px;
+		}
+		.on .trigger {
+			border: 1px solid #fff;
+			margin: 0;
+		}
+
+		.payload {
+			height: 500px;
+			position: relative;
+			width: 500px;
+		}
+		.payload img {
+			position: relative;
+			z-index: 3;
+		}
+		.payload p {
+			background: rgba(0, 0, 0, 0.8);
+			bottom: 0;
+			color: #fff;
+			padding: 0.75em;
+			position: absolute;
+			z-index: 4;
+		}
+
 		.row,
 		.col {
 			clear: both;
-			font: 3em Helvetica;
+			font: 1em Helvetica;
 			height: 500px;
 			list-style: none;
 			position: relative;
 		}
 		.row .col {
 			clear: none;
-			float: left;;
+			float: left;
+			opacity: 0.5;
 			outline: 1px solid #999;
 			width: 500px;
 		}
-
 		.spotlight {
-			background: #ffc;
+			opacity: 1 !important;
 		}
 
 		#globe {
@@ -55,7 +108,8 @@
 	</style>
 
 	<script charset="utf-8" src="../jquery-1.2.6.min.js" type="text/javascript"></script>
-	<script charset="utf-8" src="globe.js" type="text/javascript"></script>
+	<script charset="utf-8" src="../globe/globe.js" type="text/javascript"></script>
+	<script charset="utf-8" src="../product_images/product_images.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -78,7 +132,31 @@
 		<div class="row">
 			<div class="col" id="c1">c1</div>
 			<div class="col" id="c2">c2</div>
-			<div class="col" id="c3">c3</div>
+			<div class="col" id="c3">
+				<ul class="product_images">
+					<li class="frame first">
+						<h3 class="trigger"><img src="http://farm4.static.flickr.com/3227/3016268011_10d6c965b4_s.jpg" /></h3>
+						<div class="payload">
+							<img src="http://farm4.static.flickr.com/3227/3016268011_b378fba85d_o.jpg" />
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						</div>
+					</li>
+					<li class="frame second">
+						<h3 class="trigger"><img src="http://farm4.static.flickr.com/3074/3017098882_0a5a2c0847_s.jpg" /></h3>
+						<div class="payload">
+							<img src="http://farm4.static.flickr.com/3074/3017098882_acf5a361e0_o.jpg" />
+							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+						</div>
+					</li>
+					<li class="frame third">
+						<h3 class="trigger"><img src="http://farm4.static.flickr.com/3251/3016266643_30fbd1ebdd_s.jpg" /></h3>
+						<div class="payload">
+							<img src="http://farm4.static.flickr.com/3251/3016266643_61f5e70be2_o.jpg" />
+							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						</div>
+					</li>
+				</ul>
+			</div>
 			<div class="col" id="c4">c4</div>
 			<div class="col" id="c5">c5</div>
 		</div>

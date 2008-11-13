@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
 	function up() {
 		$('#globe .row:last').hide().insertBefore($('#globe .row:first')).slideDown(function () {
 			postMove();
@@ -12,16 +12,16 @@ $(function() {
 		return false;
 	}
 	function left() {
-		$('#globe .row').each(function() {
+		$('#globe .row').each(function () {
 			$(this).find('.col:last').css('width', 0).insertBefore($(this).find('.col:first')).animate({width: 500}, postMove);
 		});
 		return false;
 	}
 	function right() {
-		$('#globe .row').each(function() {
+		$('#globe .row').each(function () {
 			var self = $(this);
 			var col = self.find('.col:first');
-			col.animate({width: 0}, function() {
+			col.animate({width: 0}, function () {
 				col.insertAfter(self.find('.col:last')).css('width', 500);
 				postMove();
 			});
@@ -35,6 +35,8 @@ $(function() {
 		selected.addClass('spotlight');
 		$('#status').text(selected.attr('id'));
 	}
+
+	postMove();
 
 	$('#up').click(up);
 	$('#down').click(down);

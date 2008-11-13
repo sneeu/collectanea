@@ -1,24 +1,12 @@
 $(function () {
-	$('.frame').each(function () {
+	$('.product_images').each(function () {
 		var self = $(this);
-		var target = $('<img />').appendTo(self.find('.target'));
-		var triggers = self.find('.trigger');
-
-		triggers.click(function () {
-			var pulled = $(this);
-			triggers.filter('.on').removeClass('on');
-			pulled.addClass('on');
-
-			target.fadeOut(function () {
-				var im = new Image();
-				im.src = pulled.attr('href');
-				im.onload = function () {
-					// Perhaps x-fade?
-					target.attr('src', im.src).fadeIn();
-				}
-			});
-
-			return false;
+		self.find('.frame:not(:first) .payload').hide();
+		self.find('.trigger').click(function () {
+			self.find('.payload').fadeOut();
+			$(this).parent('.frame').siblings('.on').removeClass('on');
+			$(this).parent('.frame').addClass('on');
+			$(this).next('.payload').fadeIn();
 		})
 	});
 });
