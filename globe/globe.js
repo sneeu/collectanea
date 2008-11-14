@@ -43,8 +43,8 @@ $(function () {
 	$('#left').click(left);
 	$('#right').click(right);
 
-	$('#upandleft').click(function () {up(); left();})
-	$('#upandright').click(function () {up(); right();})
-	$('#downandleft').click(function () {down(); left();})
-	$('#downandright').click(function () {down(); right();})
+	$('#upandleft').click(function () {return up() || left();})
+	$('#upandright').click(function () {return up() || right();})
+	$('#downandleft').click(function () {return down() || left();})
+	$('#downandright').click(function () {return down() || right();})
 });
